@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 public class LogicOption {
-    String url = "jdbc:mysql://localhost:3306/Student";
+    String url = "jdbc:mysql://localhost:3306/student";
     String username = "root";
     String password = "";
     Scanner s = new Scanner(System.in);
