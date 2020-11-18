@@ -9,9 +9,9 @@ public class LogicOption {
 
         String answer = "";
         do {
-            System.out.print("Enter your name: ");
+            System.out.println("Enter your name: ");
             String name = s.nextLine();
-            System.out.print("Enter your StudentId: ");
+            System.out.println("Enter your StudentId: ");
             String studentId = s.nextLine();
             System.out.print("Enter your Address: ");
             String address = s.nextLine();
