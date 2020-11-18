@@ -1,9 +1,17 @@
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 public class LogicOption {
-
+    String url = "jdbc:mysql://localhost:3306/Student";
+    String username = "root";
+    String password = "";
     Scanner s = new Scanner(System.in);
+
 
     public ArrayList addContact(ArrayList<Contact> list) {
 
@@ -34,7 +42,24 @@ public class LogicOption {
         }
         System.out.println();
     }
-
+    public boolean updateToDB(List<Contact> list) {
+        try (
+                Connection conn = DriverManager.getConnection(url, username, password);
+                Statement stmt = conn.createStatement();
+        ) {
+            String insert;
+            int count = 0;
+            for (int i = 0; i < list.size(); i++) {
+                insert = "insert into student(studentID,studentName,address,phone) values('" + list.get(i).getStudentId() + "','" + list.get(i).getName() + "','" + list.get(i).getAddress() + "'," + list.get(i).getPhone() + ")";
+                count += stmt.executeUpdate(insert);
+            }
+            System.out.println(count + " row(s) affected");
+            return true;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
     public void displayContact(ArrayList<Contact> list) {
         System.out.println("Name || StudentId || Address  ||  Phone");
         for (Contact c : list) {

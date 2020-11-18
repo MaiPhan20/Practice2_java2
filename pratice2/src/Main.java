@@ -18,7 +18,8 @@ public class Main extends option {
             System.out.println("1. Add new contact");
             System.out.println("2. Find a contact by name");
             System.out.println("3. Display contacts");
-            System.out.println("4. Exit");
+            System.out.println("4. Save");
+            System.out.println("5. Exit");
             try {
 
                 int num = Integer.parseInt(s.nextLine());
@@ -38,7 +39,10 @@ public class Main extends option {
                             System.out.println("#Chose 3");
                             display(listContact);
                             break;
-                        case 4:
+                            case 4 :
+                                logicOption.updateToDB(listContact);
+                                break;
+                        case 5:
                             System.out.println("Good Bye! Stop Application");
                             System.exit(0);
                             break;
