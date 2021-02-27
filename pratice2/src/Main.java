@@ -23,7 +23,7 @@ public class Main extends option {
             try {
 
                 int num = Integer.parseInt(s.nextLine());
-                if (num == 0 || num == 1 || num == 2 || num == 3 || num == 4) {
+                if (num == 0 || num == 1 || num == 2 || num == 3 || num == 4 || num==5) {
 
                     switch (num) {
 
